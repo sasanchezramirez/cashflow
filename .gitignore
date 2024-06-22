@@ -1,0 +1,6 @@
+cashflow-back/venv
+cashflow-front/node_modules
+cashflow-front/build
+.env
+.vscode
+__pycache__
