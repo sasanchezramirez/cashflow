@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./cashflow-back
+    container_name: backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/cashflow
+
+  frontend:
+    build: ./cashflow-front
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:14
+    container_name: db
+    environment:
+      POSTGRES_USER: santiago
+      POSTGRES_PASSWORD: 0406
+      POSTGRES_DB: cashflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
