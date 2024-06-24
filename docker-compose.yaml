@@ -4,6 +4,8 @@ services:
   backend:
     build: ./cashflow-back
     container_name: backend
+    volumes:
+      - ./cashflow-back:/app
     ports:
       - "8000:8000"
     environment:

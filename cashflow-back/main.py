@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from sqlalchemy.orm import Session
 from app.infrastructure.driven_adapter.persistance.config.database import get_session, Base, engine
 from app.infrastructure.entry_point.routes import router
-from app.infrastructure.driven_adapter.persistance.models.user import User
+from app.infrastructure.driven_adapter.persistance.models.user_entity import User_entity
 
 def create_app() -> FastAPI:
     app = FastAPI(title="CashFLow", version="0.1")

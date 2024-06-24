@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from infrastructure.driven_adapter.persistance.config.database import Base
+from app.infrastructure.driven_adapter.persistance.config.database import Base
 
 class User_entity(Base):
     __tablename__ = "users"

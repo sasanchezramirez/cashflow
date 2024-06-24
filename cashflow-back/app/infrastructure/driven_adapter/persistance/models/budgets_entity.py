@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date
-from infrastructure.driven_adapter.persistance.config.database import Base
+from app.infrastructure.driven_adapter.persistance.config.database import Base
 
 class Budgets_entity(Base):
     __tablename__ = "budgets"

@@ -1,4 +1,4 @@
-import infrastructure.driven_adapter.persistance.service.persistence as persistence
+import app.infrastructure.driven_adapter.persistance.service.persistence as persistence
 import app.domain.model.user as User
 
 class PersistenceGateway:

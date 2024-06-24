@@ -1,7 +1,7 @@
 import logging
 from sqlalchemy.orm import Session
-from infrastructure.driven_adapter.persistance.models.user_entity import User_entity
-from infrastructure.driven_adapter.persistance.repositories.user_repository import UserRepository
+from app.infrastructure.driven_adapter.persistance.models.user_entity import User_entity
+from app.infrastructure.driven_adapter.persistance.repositories.user_repository import UserRepository
 from app.domain.model.user import User
 
 class Persistence:
