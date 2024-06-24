@@ -1,9 +1,8 @@
 from sqlalchemy import Column, Integer, String, Date
 from infrastructure.driven_adapter.persistance.config.database import Base
 
-class Categories(Base):
-    __tablename__ = "categories"
+class Budgets_entity(Base):
+    __tablename__ = "budgets"
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, index=True)
-    budget_id = Column(Integer, index=True)
-    description = Column(String)
+    weekly_amount = Column(Integer)
+    monthly_amount = Column(Integer)

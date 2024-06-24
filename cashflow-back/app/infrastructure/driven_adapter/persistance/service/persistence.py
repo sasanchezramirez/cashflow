@@ -1,7 +1,8 @@
 import logging
 from sqlalchemy.orm import Session
-from infrastructure.driven_adapter.persistance.model.user import User
+from infrastructure.driven_adapter.persistance.models.user_entity import User_entity
 from infrastructure.driven_adapter.persistance.repositories.user_repository import UserRepository
+from app.domain.model.user import User
 
 class Persistence:
     def __init__(self, session: Session):
@@ -9,11 +10,11 @@ class Persistence:
         self.session = session
         self.user_repository = UserRepository(session)
 
-    def create_user(self, name: str, email: str, password: str):
-        logging.info("Creating user")
-        user = User(email=email, password=password)
-        logging.info(f"User created with id: {user.id}")
-        return self.user_repository.create_user(user)
+    def create_user(self, user: User):
+        logging.info(f"Creating user: {user}")
+        user_entity = User_entity(user)
+        logging.info(f"User created with id: {user_entity.id}")
+        return self.user_repository.create_user(user_entity)
 
     def get_user(self, email: str):
         return self.user_repository.get_user(email)
