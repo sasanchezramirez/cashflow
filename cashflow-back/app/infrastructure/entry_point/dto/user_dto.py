@@ -1,5 +1,9 @@
-class UserDto:
-    def __init__(self, id: int, email: str, password: str):
-        self.id = id
-        self.email = email
-        self.password = password
+from pydantic import BaseModel, EmailStr
+
+class UserDto(BaseModel):
+    id: int
+    email: EmailStr
+    password: str
+
+    class Config:
+        orm_mode = True
