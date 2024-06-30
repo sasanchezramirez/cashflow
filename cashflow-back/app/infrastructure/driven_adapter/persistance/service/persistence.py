@@ -3,8 +3,9 @@ from sqlalchemy.orm import Session
 from app.infrastructure.driven_adapter.persistance.models.user_entity import User_entity
 from app.infrastructure.driven_adapter.persistance.repositories.user_repository import UserRepository
 from app.domain.model.user import User
+from app.domain.gateway.persistence_gateway import PersistenceGateway
 
-class Persistence:
+class Persistence(PersistenceGateway):
     def __init__(self, session: Session):
         logging.info("Initializing persistence")
         self.session = session

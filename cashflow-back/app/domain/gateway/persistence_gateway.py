@@ -1,10 +1,13 @@
-import app.domain.model.user as User
-from app.infrastructure.driven_adapter.persistance.service.persistence import Persistence
-from sqlalchemy.orm import Session
+from abc import ABC, abstractmethod
+from app.domain.model.user import User
 
-class PersistenceGateway:
-    def __init__(self, session: Session):
-        self.persistence = Persistence(session)
-
+class PersistenceGateway(ABC):
+    @abstractmethod
     def create_user(self, user: User):
-        return self.persistence.create_user(user)
+        pass
+
+    @abstractmethod
+    def get_user(self, user_id: int):
+        pass
+
+
