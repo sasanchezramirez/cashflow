@@ -7,3 +7,6 @@ class UserUseCase:
 
     def create_user(self, user: User):
         return self.persistence_gateway.create_user(user)
+    
+    def get_user(self, email: str):
+        return self.persistence_gateway.get_user(email)

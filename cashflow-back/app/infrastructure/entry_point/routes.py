@@ -15,3 +15,8 @@ def read_root():
 def create_user(request: UserDto, session: Session = Depends(get_session)):
     logging.info(f"Received request tocreate user: {request}")
     return user_handler.create_user(request, session)
+
+@router.get("/get-user")
+def get_user(email: str, session: Session = Depends(get_session)):
+    logging.info(f"Received request to get user")
+    return user_handler.get_user(email, session)

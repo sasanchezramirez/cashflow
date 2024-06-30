@@ -22,3 +22,22 @@ def create_user(user: UserDto, session):
 
     logging.info(f"Response: {response_dto}")
     return response_dto.to_response()
+
+def get_user(email: str, session):
+    logging.info(f"Initializing get user handler")
+    persistence= Persistence(session)
+    user_usecase = UserUseCase(persistence)
+    
+    response = user_usecase.get_user(email)
+
+    if response:
+        status_code = 200
+        data = {"response": "User fetched successfully"}
+    else:
+        status_code = 500
+        data = {"error": "Internal Server Error"}
+
+    response_dto = generic_response_dto.GenericResponseDto(data = data, status_code = status_code)
+
+    logging.info(f"Response: {response_dto}")
+    return response_dto.to_response()

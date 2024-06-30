@@ -7,7 +7,7 @@ class PersistenceGateway(ABC):
         pass
 
     @abstractmethod
-    def get_user(self, user_id: int):
+    def get_user(self, email: str):
         pass
 
 
