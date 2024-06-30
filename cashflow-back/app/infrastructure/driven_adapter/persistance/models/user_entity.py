@@ -6,3 +6,7 @@ class User_entity(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
     password = Column(String)
+
+    def __init__(self, user):
+        self.email = user.email
+        self.password = user.password

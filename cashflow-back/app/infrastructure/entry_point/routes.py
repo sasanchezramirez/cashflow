@@ -14,4 +14,4 @@ def read_root():
 @router.post("/create-user")
 def create_user(request: UserDto, db: Session = Depends(get_session)):
     logging.info(f"Received request tocreate user: {request}")
-    return user_handler.create_user(db, request)
+    return user_handler.create_user(request)
