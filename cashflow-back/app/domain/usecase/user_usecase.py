@@ -1,8 +1,9 @@
-import logging
-import app.domain.model.user as User
 from app.domain.gateway.persistence_gateway import PersistenceGateway
+from app.domain.model.user import User
 
-def create_user(user: User):
-    logging.info(f"Initializing usecase to create user: {user}")
-    persistence_gateway = PersistenceGateway()
-    return persistence_gateway.create_user(user)
+class UserUseCase:
+    def __init__(self, persistence_gateway: PersistenceGateway):
+        self.persistence_gateway = persistence_gateway
+
+    def create_user(self, user: User):
+        return self.persistence_gateway.create_user(user)

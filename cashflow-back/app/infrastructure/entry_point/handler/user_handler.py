@@ -1,11 +1,11 @@
 import logging
 from app.infrastructure.entry_point.dto.user_dto import UserDto
-import app.domain.usecase.user_usecase as user_usecase
+from app.domain.usecase.user_usecase import UserUseCase
 import app.infrastructure.entry_point.dto.generic_response_dto as generic_response_dto
 
 def create_user(user: UserDto):
     logging.info(f"Initializing create user handler with user: {user}")
-
+    user_usecase = UserUseCase()
     
     response = user_usecase.create_user(user)
 

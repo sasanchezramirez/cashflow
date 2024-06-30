@@ -9,8 +9,8 @@ class UserRepository:
     def create_user(self, user: User_entity):
         logging.info(f"Creating user: {user}")
         user = User_entity(user)
-        self.session.add(self, user)
-        self.session.commit(self)
+        self.session.add(user)
+        self.session.commit()
         return user
     
     def get_user(self, email: str):

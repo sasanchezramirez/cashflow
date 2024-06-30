@@ -8,7 +8,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def get_session():
     try:
-        db = SessionLocal()
-        yield db
+        session = SessionLocal()
+        yield session
     finally:
-        db.close()
+        session.close()

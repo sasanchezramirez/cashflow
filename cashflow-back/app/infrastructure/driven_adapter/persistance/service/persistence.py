@@ -14,7 +14,7 @@ class Persistence:
         logging.info(f"Creating user: {user}")
         user_entity = User_entity(user)
         logging.info(f"User created with id: {user_entity.id}")
-        return self.user_repository.create_user(self, user_entity)
+        return self.user_repository.create_user(user_entity)
 
     def get_user(self, email: str):
         return self.user_repository.get_user(email)
